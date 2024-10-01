@@ -18,7 +18,7 @@ public class ServiceBourse {
             TitreBoursier titreBoursier = new TitreBoursier("AAPL","Apple", 233, "USD");
             Gson gson  = new Gson();
             String message  = gson.toJson(titreBoursier);
-            channel.basicPublish(message, QUEUE_NAME, null, message.getBytes(StandardCharsets.UTF_8));
+            channel.basicPublish("", QUEUE_NAME, null, message.getBytes(StandardCharsets.UTF_8));
             System.out.println(" [x] Sent '" + message + "'");
         }
     }
